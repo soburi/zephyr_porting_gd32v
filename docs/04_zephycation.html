@@ -1,0 +1,362 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Zephyr化する · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="05_driver.html" />
+    
+    
+    <link rel="prev" href="03_blinky.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    表紙
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01_intro.html">
+            
+                <a href="01_intro.html">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02_first.html">
+            
+                <a href="02_first.html">
+            
+                    
+                    Zephyrへのプラットフォーム追加
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="03_blinky.html">
+            
+                <a href="03_blinky.html">
+            
+                    
+                    Longan Nanoに対応させる
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="04_zephycation.html">
+            
+                <a href="04_zephycation.html">
+            
+                    
+                    Zephyr化する
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="05_driver.html">
+            
+                <a href="05_driver.html">
+            
+                    
+                    ドライバを作成する
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="postscript.html">
+            
+                <a href="postscript.html">
+            
+                    
+                    あとがき
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Zephyr化する</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="zephyr&#x5316;&#x3059;&#x308B;">Zephyr&#x5316;&#x3059;&#x308B;</h1>
+<h2 id="main&#x304C;&#x52D5;&#x304F;&#x307E;&#x3067;">main()&#x304C;&#x52D5;&#x304F;&#x307E;&#x3067;</h2>
+<p>&#x30D3;&#x30EB;&#x30C9;&#x306E;&#x74B0;&#x5883;&#x304C;&#x51FA;&#x6765;&#x305F;&#x306E;&#x3067;&#x3001;Zephyr&#x306E;kernel&#x304C;&#x52D5;&#x4F5C;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;
+&#x5FC5;&#x8981;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x4F5C;&#x308A;&#x3053;&#x3093;&#x3067;&#x3044;&#x304F;&#x3002;</p>
+<p>Zephyr&#x306E;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306F;<code>main()</code>&#x95A2;&#x6570;&#x304B;&#x3089;&#x52D5;&#x4F5C;&#x3092;&#x958B;&#x59CB;&#x3059;&#x308B;&#x3002;
+&#x30DC;&#x30FC;&#x30C9;&#x306B;&#x96FB;&#x6E90;&#x3092;&#x6295;&#x5165;&#x3057;&#x3066;&#x304B;&#x3089;&#x3001;&#x69D8;&#x3005;&#x306A;&#x521D;&#x671F;&#x5316;&#x51E6;&#x7406;&#x3084;&#x8A2D;&#x5B9A;&#x306A;&#x3069;&#x3001;
+&#x7ACB;&#x3061;&#x4E0A;&#x3052;&#x306B;&#x95A2;&#x3059;&#x308B;&#x8272;&#x3005;&#x306A;&#x51E6;&#x7406;&#x304C;&#x52D5;&#x4F5C;&#x3057;&#x3066;
+&#x3088;&#x3046;&#x3084;&#x304F;<code>main()</code>&#x95A2;&#x6570;&#x306E;&#x5B9F;&#x884C;&#x306B;&#x81F3;&#x308B;&#x306E;&#x3067;&#x3042;&#x308B;&#x3002;</p>
+<p>&#x30DC;&#x30FC;&#x30C9;&#x3092;Zephyr&#x306B;&#x5BFE;&#x5FDC;&#x3055;&#x305B;&#x308B;&#x306B;&#x306F;&#x3053;&#x306E;&#x521D;&#x671F;&#x5316;&#x51E6;&#x7406;&#x3092;&#x5B9F;&#x88C5;&#x3057;&#x3066;&#x3001;
+OS&#x306E;&#x5171;&#x901A;&#x306E;&#x51E6;&#x7406;&#x3092;&#x5B9F;&#x884C;&#x3055;&#x305B;&#x308B;&#x306E;&#x304C;&#x30E1;&#x30A4;&#x30F3;&#x306E;&#x4ED5;&#x4E8B;&#x3068;&#x8A00;&#x3048;&#x308B;&#x3002;</p>
+<p>&#x3053;&#x3053;&#x3067;&#x306E;&#x30BF;&#x30B9;&#x30AF;&#x3068;&#x306A;&#x308B;&#x306E;&#x306F;&#x3001;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x304B;&#x3089;&#x300C;&#x3068;&#x308A;&#x3042;&#x3048;&#x305A;&#x300D;&#x3067;&#x6301;&#x3063;&#x3066;&#x304D;&#x305F;&#x30BD;&#x30FC;&#x30B9;&#x3084;&#x8A2D;&#x5B9A;&#x3092;
+Zephyr&#x3068;&#x3057;&#x3066;&#x52D5;&#x4F5C;&#x53EF;&#x80FD;&#x306A;&#x3082;&#x306E;&#x306B;&#x7F6E;&#x304D;&#x63DB;&#x3048;&#x3001;&#x6700;&#x4F4E;&#x9650;&#x306E;&#x521D;&#x671F;&#x5316;&#x51E6;&#x7406;&#x3092;&#x5B9F;&#x88C5;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3042;&#x308B;&#x3002;</p>
+<h2 id="&#x30EA;&#x30F3;&#x30AB;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x3092;&#x4FEE;&#x6B63;&#x3059;&#x308B;">&#x30EA;&#x30F3;&#x30AB;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x3092;&#x4FEE;&#x6B63;&#x3059;&#x308B;</h2>
+<p><code>arch/riscv/common/linker.ld</code>&#x306B;riscv&#x5411;&#x3051;&#x306E;&#x5171;&#x7528;&#x306E;&#x30EA;&#x30F3;&#x30AB;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x304C;&#x3042;&#x308B;&#x3002;
+&#x4ED6;&#x306E;RISC-V&#x306E;SoC&#x3068;&#x540C;&#x69D8;&#x3001;&#x3053;&#x308C;&#x3092;include&#x3059;&#x308B;&#x3060;&#x3051;&#x306E;&#x30EA;&#x30F3;&#x30AB;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x306B;&#x4FEE;&#x6B63;&#x3059;&#x308B;&#x3002;</p>
+<h2 id="&#x30A8;&#x30F3;&#x30C8;&#x30EA;&#x30FC;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3092;&#x4F5C;&#x308B;">&#x30A8;&#x30F3;&#x30C8;&#x30EA;&#x30FC;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3092;&#x4F5C;&#x308B;</h2>
+<p>Zephyr&#x306E;&#x30A8;&#x30F3;&#x30C8;&#x30EA;&#x30FC;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x306F;<code>__start</code>&#x306E;&#x30B7;&#x30F3;&#x30DC;&#x30EB;&#x304B;&#x3089;&#x5B9F;&#x884C;&#x3092;&#x958B;&#x59CB;&#x3059;&#x308B;&#x3002;
+<code>soc/riscv/riscv-privilege/common/vector.S</code>&#x306B;&#x5171;&#x7528;&#x306E;&#x5B9F;&#x88C5;&#x304C;&#x3042;&#x308B;&#x304C;&#x3001;
+GD32VF103&#x3067;&#x306F;<code>CSR_MMISC_CTL</code>, <code>CSR_MTVT2</code> &#x306E;&#x3088;&#x3046;&#x306B;RISV-V&#x306E;&#x4ED5;&#x69D8;&#x306B;&#x542B;&#x307E;&#x308C;&#x306A;&#x3044;&#x56FA;&#x6709;&#x306E;&#x30EC;&#x30B8;&#x30B9;&#x30BF;&#x304C;&#x3042;&#x308A;&#x3001;&#x56FA;&#x6709;&#x306E;&#x521D;&#x671F;&#x5316;&#x51E6;&#x7406;&#x3092;&#x5165;&#x308C;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3002;</p>
+<p>&#x3053;&#x3053;&#x3067;&#x306F;<code>soc/riscv/riscv-privilege/gigadevice-gd32vf103/entry.S</code>&#x306B;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3001;<code>Kconfig</code>&#x3067;&#x30A8;&#x30F3;&#x30C8;&#x30EA;&#x30FC;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x306E;&#x30B7;&#x30F3;&#x30DC;&#x30EB;&#x3092;&#x5909;&#x66F4;&#x3057;&#x3066;&#x5BFE;&#x5FDC;&#x3059;&#x308B;&#x3002;</p>
+<p>&#x521D;&#x671F;&#x5316;&#x51E6;&#x7406;&#x306F;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x306E;&#x521D;&#x671F;&#x5316;&#x30EB;&#x30FC;&#x30C1;&#x30F3;&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x5B9F;&#x88C5;&#x3068;&#x3057;&#x3001;
+&#x521D;&#x671F;&#x5316;&#x51E6;&#x7406;&#x306E;&#x3042;&#x3068;&#x306B;Zephyr&#x3068;&#x3057;&#x3066;&#x5FC5;&#x8981;&#x306A;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3046;&#x3002;
+&#x5171;&#x7528;&#x306E;&#x5B9F;&#x88C5;&#x3067;&#x3082;&#x884C;&#x3063;&#x3066;&#x3044;&#x308B;&#x304C;&#x3001;<code>mtvec</code>&#x306E;&#x30EC;&#x30B8;&#x30B9;&#x30BF;&#x306B;&#x5272;&#x308A;&#x8FBC;&#x307F;&#x30CF;&#x30F3;&#x30C9;&#x30E9;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;
+Zephyr&#x3067;&#x306F;RISC-V&#x306E;&#x5171;&#x7528;&#x306E;&#x5272;&#x308A;&#x8FBC;&#x307F;&#x30CF;&#x30F3;&#x30C9;&#x30E9;&#x306E;<code>__irq_wrapper</code>&#x3067;&#x5272;&#x308A;&#x8FBC;&#x307F;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3001;
+&#x3053;&#x306E;&#x30A2;&#x30C9;&#x30EC;&#x30B9;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308C;&#x3070;&#x3088;&#x3044;&#x306E;&#x3060;&#x304C;&#x3001;GD32VF103&#x3067;&#x306F;mtvec&#x306B;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x30A2;&#x30C9;&#x30EC;&#x30B9;&#x306F;
+64bit align&#x3092;&#x8981;&#x6C42;&#x3057;&#x3066;&#x3044;&#x308B;&#x305F;&#x3081;&#x3001;&#x3053;&#x3053;&#x3067;&#x306F;<code>__irq_wrapper</code>&#x306E;&#x30E9;&#x30C3;&#x30D1;&#x30FC;&#x3092;&#x4F5C;&#x3063;&#x3066;&#x305D;&#x308C;&#x3092;
+&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;
+&#x5272;&#x308A;&#x8FBC;&#x307F;&#x30CF;&#x30F3;&#x30C9;&#x30E9;&#x306E;&#x8A2D;&#x5B9A;&#x304C;&#x5B8C;&#x4E86;&#x3057;&#x305F;&#x3089;&#x3001;<code>__initialize</code>&#x306B;&#x5236;&#x5FA1;&#x3092;&#x79FB;&#x3057;&#x3066;&#x3001;
+Zephyr&#x306E;OS&#x306E;&#x51E6;&#x7406;&#x3092;&#x958B;&#x59CB;&#x3059;&#x308B;&#x3002;</p>
+<h2 id="multi-thread&#x51E6;&#x7406;&#x3092;&#x7121;&#x52B9;&#x306B;&#x3059;&#x308B;">Multi Thread&#x51E6;&#x7406;&#x3092;&#x7121;&#x52B9;&#x306B;&#x3059;&#x308B;</h2>
+<p>Zepher&#x306F;&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306B;&#x5BFE;&#x5FDC;&#x3057;&#x305F;OS&#x3067;&#x3042;&#x308B;&#x304C;&#x3001;&#x7ACB;&#x3061;&#x4E0A;&#x3052;&#x306E;&#x3068;&#x304D;&#x306B;&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x52D5;&#x4F5C;&#x3092;&#x884C;&#x3046;&#x3068;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306E;&#x5207;&#x308A;&#x66FF;&#x3048;&#x306A;&#x3069;&#x52D5;&#x4F5C;&#x78BA;&#x8A8D;&#x304C;&#x7169;&#x96D1;&#x306B;&#x306A;&#x308B;&#x3002;
+&#x4E00;&#x65E6;&#x3001;&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306E;&#x51E6;&#x7406;&#x3092;&#x7121;&#x52B9;&#x306B;&#x3057;&#x3066;&#x304A;&#x304F;&#x3002;</p>
+<pre><code>CONFIG_MULTITHREADING=n
+</code></pre><p>&#x3068;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;</p>
+<p>&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306E;&#x51E6;&#x7406;&#x306B;&#x306F;&#x5272;&#x308A;&#x8FBC;&#x307F;&#x3068;&#x30BF;&#x30A4;&#x30DE;&#x30FC;&#x6A5F;&#x80FD;&#x304C;&#x304B;&#x304B;&#x308F;&#x308B;&#x305F;&#x3081;&#x3001;
+&#x3053;&#x308C;&#x3089;&#x306E;&#x5B9F;&#x88C5;&#x304C;&#x5B8C;&#x4E86;&#x3057;&#x305F;&#x3089;&#x3001;&#x518D;&#x5EA6;&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3092;&#x6709;&#x52B9;&#x306B;&#x3059;&#x308B;&#x3002;</p>
+<h2 id="&#x521D;&#x671F;&#x5316;&#x51E6;&#x7406;">&#x521D;&#x671F;&#x5316;&#x51E6;&#x7406;</h2>
+<p>&#x30A2;&#x30BB;&#x30F3;&#x30D6;&#x30E9;&#x30EC;&#x30D9;&#x30EB;&#x306E;&#x30D6;&#x30FC;&#x30C8;&#x51E6;&#x7406;&#x304C;&#x7D42;&#x308F;&#x3063;&#x305F;&#x3089;&#x3001;Zephyr&#x306E;&#x521D;&#x671F;&#x5316;&#x95A2;&#x6570;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x304C;&#x884C;&#x308F;&#x308C;&#x308B;&#x3002;
+&#x521D;&#x671F;&#x5316;&#x3092;&#x884C;&#x3046;&#x95A2;&#x6570;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3092;Zephyr&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x306B;&#x6CBF;&#x3063;&#x305F;&#x5F62;&#x3067;&#x5B9F;&#x88C5;&#x3059;&#x308B;&#x3002;
+&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x521D;&#x671F;&#x5316;&#x306F;<code>SYS_INIT</code>&#x306E;&#x30DE;&#x30AF;&#x30ED;&#x3067;&#x3001;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x3002;
+&#x3053;&#x306E;&#x30DE;&#x30AF;&#x30ED;&#x3067;&#x306F;&#x3001;&#x521D;&#x671F;&#x5316;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x30BF;&#x30A4;&#x30DF;&#x30F3;&#x30B0;&#x3092;&#x30EC;&#x30D9;&#x30EB;&#x3068;&#x3057;&#x3066;
+<code>PRE_KERNEL1</code>, <code>PRE_KERNEL2</code>, <code>POST_KERNEL</code>, <code>POST_KERNEL_SMP</code>, <code>APPLICATION</code>
+&#x304B;&#x3089;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;<code>PRE_KERNEL1</code>&#x304C;&#x6700;&#x3082;&#x65E9;&#x3044;&#x6BB5;&#x968E;&#x3067;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x306E;&#x3067;&#x3001;&#x3053;&#x3053;&#x3067;&#x306F;</p>
+<pre><code>SYS_INIT(_init, PRE_KERNEL_1, CONFIG_KERNEL_INIT_PRIORITY_DEFAULT);
+</code></pre><p>&#x306E;&#x3088;&#x3046;&#x306B;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3002;
+<code>SYS_INIT</code>&#x306F;&#x6307;&#x5B9A;&#x3057;&#x305F;&#x521D;&#x671F;&#x5316;&#x95A2;&#x6570;&#x3092;&#x547C;&#x3073;&#x51FA;&#x3059;&#x30B3;&#x30FC;&#x30C9;&#x3092;
+<code>.devconfig.init</code>&#x306E;&#x30BB;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306B;&#x914D;&#x7F6E;&#x3057;&#x3001;&#x8D77;&#x52D5;&#x6642;&#x306B;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3002;</p>
+<h2 id="archswap">arch_swap</h2>
+<h2 id="&#x3053;&#x3053;&#x307E;&#x3067;&#x3067;&#x51FA;&#x6765;&#x305F;&#x3053;&#x3068;">&#x3053;&#x3053;&#x307E;&#x3067;&#x3067;&#x51FA;&#x6765;&#x305F;&#x3053;&#x3068;</h2>
+<p>&#x3053;&#x3053;&#x307E;&#x3067;&#x3067;&#x3001;Zephyr&#x306E;&#x8D77;&#x52D5;&#x51E6;&#x7406;&#x3092;&#x7D42;&#x3048;&#x3066;<code>main()</code>&#x95A2;&#x6570;&#x307E;&#x3067;&#x8FBF;&#x308A;&#x7740;&#x3044;&#x305F;&#x3002;
+&#x3053;&#x308C;&#x3067;&#x3001;&#x5B9F;&#x7528;&#x7684;&#x3067;&#x306F;&#x306A;&#x3044;&#x3082;&#x306E;&#x306E;&#x6700;&#x4F4E;&#x9650;&#x306E;&#x30EC;&#x30D9;&#x30EB;&#x3067;Zephyr&#x304C;&#x52D5;&#x3044;&#x305F;&#x3068;&#x3044;&#x3048;&#x308B;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="03_blinky.html" class="navigation navigation-prev " aria-label="Previous page: Longan Nanoに対応させる">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="05_driver.html" class="navigation navigation-next " aria-label="Next page: ドライバを作成する">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Zephyr化する","level":"1.5","depth":1,"next":{"title":"ドライバを作成する","level":"1.6","depth":1,"path":"05_driver.md","ref":"05_driver.md","articles":[]},"previous":{"title":"Longan Nanoに対応させる","level":"1.4","depth":1,"path":"03_blinky.md","ref":"03_blinky.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"04_zephycation.md","mtime":"2021-05-09T14:04:26.316Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-09T14:40:30.030Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

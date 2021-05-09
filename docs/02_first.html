@@ -1,0 +1,369 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Zephyrへのプラットフォーム追加 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="03_blinky.html" />
+    
+    
+    <link rel="prev" href="01_intro.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    表紙
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01_intro.html">
+            
+                <a href="01_intro.html">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="02_first.html">
+            
+                <a href="02_first.html">
+            
+                    
+                    Zephyrへのプラットフォーム追加
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="03_blinky.html">
+            
+                <a href="03_blinky.html">
+            
+                    
+                    Longan Nanoに対応させる
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="04_zephycation.html">
+            
+                <a href="04_zephycation.html">
+            
+                    
+                    Zephyr化する
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="05_driver.html">
+            
+                <a href="05_driver.html">
+            
+                    
+                    ドライバを作成する
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="postscript.html">
+            
+                <a href="postscript.html">
+            
+                    
+                    あとがき
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Zephyrへのプラットフォーム追加</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="zephyr&#x3078;&#x306E;&#x30D7;&#x30E9;&#x30C3;&#x30C8;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x8FFD;&#x52A0;">Zephyr&#x3078;&#x306E;&#x30D7;&#x30E9;&#x30C3;&#x30C8;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x8FFD;&#x52A0;</h1>
+<h2 id="&#x4F55;&#x3092;&#x3084;&#x308B;&#x306E;&#x304B;">&#x4F55;&#x3092;&#x3084;&#x308B;&#x306E;&#x304B;</h2>
+<p>&#x65B0;&#x3057;&#x3044;&#x30DC;&#x30FC;&#x30C9;&#x3084;CPU&#x3092;Zephyr&#x3067;&#x4F7F;&#x3046;&#x305F;&#x3081;&#x306B;&#x306F;&#x3001;</p>
+<ul>
+<li>&#x958B;&#x767A;&#x74B0;&#x5883;&#x306E;&#x4F5C;&#x6210;</li>
+<li>CPU&#x3084;&#x30DC;&#x30FC;&#x30C9;&#x7279;&#x6709;&#x306E;&#x90E8;&#x5206;&#x306E;OS&#x5BFE;&#x5FDC;</li>
+<li>&#x72EC;&#x81EA;&#x306E;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x306B;&#x5BFE;&#x3059;&#x308B;&#x30C9;&#x30E9;&#x30A4;&#x30D0;&#x306E;&#x4F5C;&#x6210;</li>
+</ul>
+<p>&#x306E;&#x5BFE;&#x5FDC;&#x3092;&#x884C;&#x3046;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3002;</p>
+<p>&#x307E;&#x305A;&#x3001;&#x30D3;&#x30EB;&#x30C9;&#x3084;&#x30DC;&#x30FC;&#x30C9;&#x3078;&#x306E;&#x66F8;&#x304D;&#x8FBC;&#x307F;&#x3001;&#x30C7;&#x30D0;&#x30C3;&#x30B0;&#x3092;&#x884C;&#x3046;&#x305F;&#x3081;&#x306E;&#x958B;&#x767A;&#x74B0;&#x5883;&#x306E;&#x4F5C;&#x6210;&#x3092;&#x884C;&#x3046;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3002;
+&#x3053;&#x308C;&#x3089;&#x306E;&#x4F5C;&#x696D;&#x306F;Zephyr&#x5BFE;&#x5FDC;&#x306E;&#x4F5C;&#x696D;&#x81EA;&#x4F53;&#x3067;&#x3082;&#x5E38;&#x7528;&#x3059;&#x308B;&#x3082;&#x306E;&#x306A;&#x306E;&#x3067;&#x3001;&#x6700;&#x521D;&#x306B;&#x5FC5;&#x8981;&#x3068;&#x306A;&#x308B;&#x5BFE;&#x5FDC;&#x3067;&#x3042;&#x308B;&#x3002;</p>
+<p>&#x6B21;&#x306B;&#x30D6;&#x30FC;&#x30C8;&#x5468;&#x308A;&#x3092;&#x30E1;&#x30A4;&#x30F3;&#x3068;&#x3059;&#x308B;&#x3001;CPU&#x3001;&#x30DC;&#x30FC;&#x30C9;&#x56FA;&#x6709;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x4F5C;&#x6210;&#x3092;&#x884C;&#x3046;&#x3002;
+&#x3053;&#x306E;&#x5BFE;&#x5FDC;&#x3092;&#x884C;&#x3046;&#x3068;&#x3001;&#x6700;&#x4F4E;&#x9650;&#x306E;OS&#x3092;&#x52D5;&#x4F5C;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x3002;
+Zephyr&#x306E;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x306F;&#x3001;CPU&#x30B3;&#x30A2;&#x3001;SoC&#x3001;&#x30DC;&#x30FC;&#x30C9;&#x306E;3&#x5C64;&#x3067;&#x968E;&#x5C64;&#x5316;&#x3057;&#x3066;&#x304A;&#x308A;&#x3001;
+&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x3054;&#x3068;&#x306B;&#x518D;&#x5229;&#x7528;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3042;&#x308B;&#x3002;
+Zephyr&#x306E;CPU/SoC&#x4F9D;&#x5B58;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306F;&#x534A;&#x5C0E;&#x4F53;&#x30D9;&#x30F3;&#x30C0;&#x30FC;&#x81EA;&#x3089;&#x306B;&#x3088;&#x3063;&#x3066;&#x5B9F;&#x88C5;&#x304C;&#x884C;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x3082;&#x591A;&#x304F;&#x3001;
+CPU&#x3084;SoC&#x30EC;&#x30D9;&#x30EB;&#x306E;&#x5BFE;&#x5FDC;&#x3092;&#x884C;&#x3046;&#x30B1;&#x30FC;&#x30B9;&#x306F;&#x5C11;&#x306A;&#x3044;&#x3002;(SoC&#x306E;&#x30EC;&#x30D9;&#x30EB;&#x306E;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x8AAD;&#x3080;&#x3053;&#x3068;&#x306F;&#x591A;&#x3044;&#x306F;&#x305A;)
+&#x8D77;&#x52D5;&#x306E;&#x56FA;&#x6709;&#x90E8;&#x5206;&#x4EE5;&#x964D;&#x306E;&#x51E6;&#x7406;&#x306F;&#x3001;OS&#x304C;&#x30CF;&#x30FC;&#x30C9;&#x5DEE;&#x7570;&#x3092;&#x62BD;&#x8C61;&#x5316;&#x3001;&#x96A0;&#x307A;&#x3044;&#x3057;&#x3066;&#x5B9F;&#x88C5;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3001;
+&#x500B;&#x5225;&#x306E;&#x5BFE;&#x5FDC;&#x306F;&#x307B;&#x3068;&#x3093;&#x3069;&#x767A;&#x751F;&#x3057;&#x306A;&#x3044;&#x3002;</p>
+<p>OS&#x306E;&#x57FA;&#x672C;&#x52D5;&#x4F5C;&#x306E;&#x6B21;&#x306F;&#x3001;&#x5B9F;&#x7528;&#x7684;&#x306A;&#x6A5F;&#x80FD;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;SoC&#x306E;&#x30DA;&#x30EA;&#x30D5;&#x30A7;&#x30E9;&#x30EB;&#x985E;&#x3084;&#x3001;
+&#x30DC;&#x30FC;&#x30C9;&#x306B;&#x63A5;&#x7D9A;&#x3055;&#x308C;&#x305F;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x305D;&#x308C;&#x305E;&#x308C;&#x56FA;&#x6709;&#x306E;&#x30C9;&#x30E9;&#x30A4;&#x30D0;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x3002;
+Zephyr&#x3067;&#x306F;&#x3001;&#x7D71;&#x4E00;&#x7684;&#x306A;&#x30C9;&#x30E9;&#x30A4;&#x30D0;&#x30E2;&#x30C7;&#x30EB;&#x3068;&#x3001;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x7A2E;&#x5225;&#x3054;&#x3068;&#x306E;&#x5171;&#x901A;API&#x3067;&#x30CF;&#x30FC;&#x30C9;&#x30A6;&#x30A7;&#x30A2;&#x62BD;&#x8C61;&#x5316;&#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x3092;
+&#x4F5C;&#x3063;&#x3066;&#x3044;&#x308B;&#x3002;&#x3064;&#x307E;&#x308A;&#x30C9;&#x30E9;&#x30A4;&#x30D0;&#x958B;&#x767A;&#x306E;&#x3044;&#x304F;&#x3064;&#x304B;&#x304A;&#x6C7A;&#x307E;&#x308A;&#x306E;&#x30EB;&#x30FC;&#x30EB;&#x3092;&#x5B88;&#x3063;&#x3066;&#x3001;&#x5171;&#x901A;API&#x3092;&#x5B9F;&#x88C5;&#x3059;&#x308C;&#x3070;&#x3001;
+&#x65E2;&#x5B58;&#x306E;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x8CC7;&#x7523;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3002;</p>
+<p>&#x6982;&#x306D;&#x3001;&#x4E0A;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306A;&#x9806;&#x3067;&#x5BFE;&#x5FDC;&#x3057;&#x3066;&#x3044;&#x304F;&#x3053;&#x3068;&#x3067;Zephyr&#x306B;&#x65B0;&#x3057;&#x3044;&#x30DC;&#x30FC;&#x30C9;&#x3084;CPU&#x3092;&#x5BFE;&#x5FDC;&#x3055;&#x305B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3002;</p>
+<h2 id="zephyr&#x306E;&#x4E3B;&#x306A;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x69CB;&#x6210;">Zephyr&#x306E;&#x4E3B;&#x306A;&#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x69CB;&#x6210;</h2>
+<ul>
+<li><p>arch, board, soc</p>
+<p>&#x3053;&#x306E;3&#x3064;&#x306E;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306F;CPU&#x30B3;&#x30A2;&#x3001;&#x30DC;&#x30FC;&#x30C9;&#x3001;SoC&#x306B;&#x4F9D;&#x5B58;&#x3057;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x542B;&#x307E;&#x308C;&#x3066;&#x3044;&#x308B;&#x3002;</p>
+</li>
+<li><p>drivers</p>
+<p>&#x5404;&#x7A2E;&#x30C9;&#x30E9;&#x30A4;&#x30D0;&#x306E;&#x30BD;&#x30FC;&#x30B9;</p>
+</li>
+<li><p>dts</p>
+<p>devicetree&#x3067;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x5B9A;&#x7FA9;&#x306A;&#x3069;</p>
+</li>
+<li><p>kernel, ext, lib, subsys</p>
+<p>Zephyr&#x306E;OS&#x672C;&#x4F53;&#x3068;&#x306A;&#x308B;&#x30BD;&#x30FC;&#x30B9;&#x3002;</p>
+</li>
+<li><p>cmake, script</p>
+<p>CMake&#x306B;&#x3088;&#x308B;&#x30D3;&#x30EB;&#x30C9;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x3084;&#x88DC;&#x52A9;&#x30B3;&#x30DE;&#x30F3;&#x30C9;<code>west</code>&#x304C;&#x53C2;&#x7167;&#x3059;&#x308B;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x985E;</p>
+</li>
+<li><p>doc</p>
+<p>&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x985E;</p>
+</li>
+</ul>
+<p>&#x65B0;&#x3057;&#x3044;CPU/&#x30DC;&#x30FC;&#x30C9;&#x306B;&#x5BFE;&#x5FDC;&#x3059;&#x308B;&#x306B;&#x306F;&#x3001;&#x4E3B;&#x306B;<code>arch</code>, <code>boards</code>, <code>soc</code>&#x306E;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308B;&#x3002;
+&#x30C9;&#x30E9;&#x30A4;&#x30D0;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x3068;&#x304D;&#x306B;&#x306F;&#x3001;&#x30C9;&#x30E9;&#x30A4;&#x30D0;&#x306E;&#x5B9F;&#x88C5;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x683C;&#x7D0D;&#x3059;&#x308B;<code>drivers</code>&#x3068;&#x3001;
+&#x30C9;&#x30E9;&#x30A4;&#x30D0;&#x306B;&#x5FC5;&#x8981;&#x306A;devicetree&#x306E;&#x5B9A;&#x7FA9;&#x3092;&#x683C;&#x7D0D;&#x3059;&#x308B;&#x305F;&#x3081;<code>dts</code>&#x306B;&#x5BFE;&#x3057;&#x3066;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x8FFD;&#x52A0;&#x3092;&#x884C;&#x3046;&#x3002;</p>
+<h2 id="kconfig-devicetree-cmake">Kconfig, devicetree, CMake</h2>
+<p>Zephyr&#x306E;&#x30D3;&#x30EB;&#x30C9;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306F;&#x305D;&#x306E;&#x4E2D;&#x6838;&#x306B;Linux&#x3067;&#x5B9F;&#x7E3E;&#x306E;&#x3042;&#x308B;Kconfig, devicetree&#x306E;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x304C;
+&#x7F6E;&#x304B;&#x308C;&#x3066;&#x3044;&#x308B;&#x3002;Linux&#x3082;&#x591A;&#x304F;&#x306E;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x30C9;&#x30E9;&#x30A4;&#x30D0;&#x306E;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x53CE;&#x9332;&#x3057;&#x3001;&#x305D;&#x308C;&#x3092;
+&#x67D4;&#x8EDF;&#x306B;&#x7D44;&#x307F;&#x66FF;&#x3048;&#x3066;&#x591A;&#x7A2E;&#x591A;&#x69D8;&#x306A;&#x30DC;&#x30FC;&#x30C9;&#x306E;&#x5BFE;&#x5FDC;&#x3092;&#x5B9F;&#x73FE;&#x3057;&#x3066;&#x3044;&#x308B;&#x3002;(Linux&#x306B;&#x304A;&#x3044;&#x3066;&#x3082;&#x3001;
+&#x3053;&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x306F;&#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x304C;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3059;&#x308B;ARM&#x642D;&#x8F09;&#x30DC;&#x30FC;&#x30C9;&#x306E;&#x7206;&#x767A;&#x7684;&#x306A;&#x5897;&#x52A0;&#x306B;&#x5BFE;&#x5FDC;&#x3059;&#x308B;&#x305F;&#x3081;
+&#x5C0E;&#x5165;&#x3055;&#x308C;&#x305F;&#x7D4C;&#x7DEF;&#x304C;&#x3042;&#x308B;)
+&#x307E;&#x305F;&#x3001;&#x30D3;&#x30EB;&#x30C9;&#x306E;&#x30D7;&#x30E9;&#x30C3;&#x30C8;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x5DEE;&#x7570;&#x3092;&#x5438;&#x53CE;&#x3067;&#x304D;&#x308B;CMake&#x3082;&#x30D3;&#x30EB;&#x30C9;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306B;&#x7D44;&#x307F;&#x8FBC;&#x307E;&#x308C;&#x3066;&#x3044;&#x308B;&#x3002;
+Zephyr&#x306E;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x6539;&#x5909;&#x3059;&#x308B;&#x306B;&#x3042;&#x305F;&#x3063;&#x3066;&#x3001;&#x3053;&#x308C;&#x3089;&#x306E;&#x30C4;&#x30FC;&#x30EB;&#x306E;&#x57FA;&#x672C;&#x7684;&#x306A;&#x7528;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x3001;
+&#x3042;&#x308B;&#x7A0B;&#x5EA6;&#x628A;&#x63E1;&#x3057;&#x3066;&#x3044;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01_intro.html" class="navigation navigation-prev " aria-label="Previous page: はじめに">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="03_blinky.html" class="navigation navigation-next " aria-label="Next page: Longan Nanoに対応させる">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Zephyrへのプラットフォーム追加","level":"1.3","depth":1,"next":{"title":"Longan Nanoに対応させる","level":"1.4","depth":1,"path":"03_blinky.md","ref":"03_blinky.md","articles":[]},"previous":{"title":"はじめに","level":"1.2","depth":1,"path":"01_intro.md","ref":"01_intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"02_first.md","mtime":"2021-05-09T14:04:26.316Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-09T14:40:30.030Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
